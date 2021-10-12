@@ -94,23 +94,18 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 //RGB Layers. Marry layout layers and rgb state
-const rgblight_segment_t PROGMEM base_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 1, HSV_BLUE}       // Light 4 LEDs, starting with LE 1
+const rgblight_segment_t PROGMEM symbol_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {2, 10, HSV_GREEN}       // Light 4 LEDs, starting with LE 1
 );
 
 const rgblight_segment_t PROGMEM number_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {2, 1, HSV_ORANGE}       // Light 4 LEDs, starting with LED 1
-);
-
-const rgblight_segment_t PROGMEM symbol_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {3, 1, HSV_RED}       // Light 4 LEDs, starting with LED 1
+    {1, 10, HSV_ORANGE}       // Light 4 LEDs, starting with LED 1
 );
 
 //Define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    symbol_rgb_layer,
     number_rgb_layer,
-    base_rgb_layer
+    symbol_rgb_layer
 );
 
 void keyboard_post_init_user(void) {
@@ -123,18 +118,8 @@ void keyboard_post_init_user(void) {
     //debug_mouse=true;
 }
 
-bool led_update_user(led_t led_state) {
-    rgblight_set_layer_state(0, _BASE_LAYER);
-    return true;
-}
-
-layer_state_t default_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(1, _NUMBER_LAYER);
-    rgblight_set_layer_state(2, _SYMBOL_LAYER);
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _NUMBER_LAYER));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _SYMBOL_LAYER));
     return state;
 }
-
-//layer_state_t layer_state_set_user(layer_state_t state) {
-//    rgblight_set_layer_state(1, layer_state_cmp(state, _NUMBER_LAYER));
-//    return state;
-//}
