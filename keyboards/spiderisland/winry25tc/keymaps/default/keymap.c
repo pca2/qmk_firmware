@@ -89,6 +89,23 @@ const uint16_t PROGMEM f10_combo[] = {KC_SPC, KC_0, COMBO_END};
 const uint16_t PROGMEM f11_combo[] = {KC_SPC, KC_SLASH, COMBO_END};
 const uint16_t PROGMEM f12_combo[] = {KC_SPC, KC_PLUS, COMBO_END};
 
+// sym + space
+const uint16_t PROGMEM tab2_combo[] = {KC_SPC, KC_QUESTION, COMBO_END};
+const uint16_t PROGMEM plus_combo[] = {KC_SPC, KC_AMPERSAND, COMBO_END};
+const uint16_t PROGMEM eq_combo[] = {KC_SPC, KC_KP_ASTERISK, COMBO_END};
+const uint16_t PROGMEM dollar_combo[] = {KC_SPC, KC_COLON, COMBO_END};
+const uint16_t PROGMEM hash_combo[] = {KC_SPC, KC_SCOLON, COMBO_END};
+const uint16_t PROGMEM bslash_combo[] = {KC_SPC, KC_SLASH, COMBO_END};
+const uint16_t PROGMEM percent_combo[] = {KC_SPC, KC_EXCLAIM, COMBO_END};
+const uint16_t PROGMEM pipe_combo[] = {KC_SPC, KC_MINUS, COMBO_END};
+const uint16_t PROGMEM tilde_combo[] = {KC_SPC, KC_AT, COMBO_END};
+const uint16_t PROGMEM carrot_combo[] = {KC_SPC, KC_UNDERSCORE, COMBO_END};
+const uint16_t PROGMEM btick_combo[] = {KC_SPC, KC_DOUBLE_QUOTE, COMBO_END};
+const uint16_t PROGMEM rangle_combo[] = {KC_SPC, KC_LEFT_ANGLE_BRACKET, COMBO_END};
+const uint16_t PROGMEM rparen_combo[] = {KC_SPC, KC_LEFT_PAREN, COMBO_END};
+const uint16_t PROGMEM rbracket_combo[] = {KC_SPC, KC_LBRACKET, COMBO_END};
+const uint16_t PROGMEM rcurly_combo[] = {KC_SPC, KC_LEFT_CURLY_BRACE, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
 //base_layer + space combos
   COMBO(tab_combo, KC_TAB),
@@ -119,6 +136,22 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(f10_combo, KC_F10),
   COMBO(f11_combo, KC_F10),
   COMBO(f12_combo, KC_F12),
+  //sym + space
+  COMBO(tab2_combo, KC_TAB),
+  COMBO(plus_combo, KC_PLUS),
+  COMBO(eq_combo, KC_EQUAL),
+  COMBO(dollar_combo, KC_DOLLAR),
+  COMBO(hash_combo, KC_HASH),
+  COMBO(bslash_combo, KC_BSLASH),
+  COMBO(percent_combo, KC_PERCENT),
+  COMBO(pipe_combo, KC_PIPE),
+  COMBO(tilde_combo, KC_TILDE),
+  COMBO(carrot_combo, KC_CIRCUMFLEX),
+  COMBO(btick_combo, KC_GRAVE),
+  COMBO(rangle_combo, KC_RIGHT_ANGLE_BRACKET),
+  COMBO(rparen_combo, KC_RIGHT_PAREN),
+  COMBO(rbracket_combo, KC_RBRACKET),
+  COMBO(rcurly_combo, KC_RIGHT_CURLY_BRACE)
 };
 
 //RGB Layers. Marry layout layers and rgb state
