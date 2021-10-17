@@ -22,7 +22,9 @@
 #define _NUM_FUNC_LAYER 3
 
 enum custom_keycodes {
-  NUM_FUNC = SAFE_RANGE
+  NUM_FUNC = SAFE_RANGE,
+  CTRL_KEY,
+  ALT_KEY
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -50,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUM_FUNC_LAYER] = LAYOUT(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
         KC_ESC, KC_HOME, KC_END, KC_PAUS, KC_PGUP, 
-        KC_INS, KC_EXCLAIM, KC_MINUS, KC_UP, KC_PGDN,
+        KC_INS, CTRL_KEY, ALT_KEY, KC_UP, KC_PGDN,
         KC_DEL, KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS 
     )
@@ -118,11 +120,21 @@ const rgblight_segment_t PROGMEM num_func_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 10, HSV_BLUE}       // Light 4 LEDs, starting with LED 1
 );
 
+const rgblight_segment_t PROGMEM ctrl_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 10, HSV_RED}       // Light 4 LEDs, starting with LED 1
+);
+
+const rgblight_segment_t PROGMEM alt_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 10, HSV_PINK}       // Light 4 LEDs, starting with LED 1
+);
+
 //Define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     number_rgb_layer,
     symbol_rgb_layer,
-    num_func_rgb_layer
+    num_func_rgb_layer,
+    ctrl_rgb_light,
+    alt_rgb_light
 );
 
 void keyboard_post_init_user(void) {
@@ -139,6 +151,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(0, layer_state_cmp(state, _NUMBER_LAYER));
     rgblight_set_layer_state(1, layer_state_cmp(state, _SYMBOL_LAYER));
     rgblight_set_layer_state(2, layer_state_cmp(state, _NUM_FUNC_LAYER));
+    rgblight_set_layer_state(3, get_mods() & MOD_BIT(KC_LCTRL));
+    rgblight_set_layer_state(4, get_mods() & MOD_BIT(KC_LALT));
     return state;
 }
 
@@ -160,6 +174,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       }
       return false; // We handled this keypress, don't proceed with normal functionaly
+    case CTRL_KEY:  
+      if(record->event.pressed) {
+        // if button already pressed, unregister
+        if (get_mods() & MOD_BIT(KC_LCTRL)) {
+          unregister_code(KC_LCTRL);
+        } else {
+          // if not, register it and hold
+          register_code(KC_LCTRL);
+        }
+      } 
+      return false; 
+    case ALT_KEY:  
+      if(record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LALT)) {
+          unregister_code(KC_LALT);
+        } else {
+          register_code(KC_LALT);
+        }
+      } 
+      return false; 
   }
   return true; // Default case. We didn't handle other keypresses
 }
