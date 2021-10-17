@@ -75,13 +75,6 @@ const uint16_t PROGMEM x_combo[] = {KC_SPC, KC_Y, COMBO_END};
 const uint16_t PROGMEM comma_combo[] = {KC_SPC, TG(_SYMBOL_LAYER), COMBO_END};
 const uint16_t PROGMEM period_combo[] = {KC_SPC, KC_ENT, COMBO_END};
 
-////num + key combos
-//const uint16_t PROGMEM backspace_combo[] = {TG(_NUMBER_LAYER), KC_I, COMBO_END};
-//const uint16_t PROGMEM left_combo[] = {TG(_NUMBER_LAYER), KC_N, COMBO_END};
-//const uint16_t PROGMEM down_combo[] = {TG(_NUMBER_LAYER), KC_S, COMBO_END};
-//const uint16_t PROGMEM right_combo[] = {TG(_NUMBER_LAYER), KC_Y, COMBO_END};
-//const uint16_t PROGMEM up_combo[] = {TG(_NUMBER_LAYER), KC_T, COMBO_END};
-
 combo_t key_combos[COMBO_COUNT] = {
 //base_layer + space combos
   COMBO(tab_combo, KC_TAB),
@@ -99,12 +92,6 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(x_combo, KC_X),
   COMBO(comma_combo, KC_COMMA),
   COMBO(period_combo, KC_DOT),
-  //num + key combos
- // COMBO(backspace_combo, KC_BSPC),
- // COMBO(left_combo, KC_LEFT),
- // COMBO(down_combo, KC_DOWN),
- // COMBO(right_combo, KC_RGHT),
- // COMBO(up_combo, KC_UP)
 };
 
 //RGB Layers. Marry layout layers and rgb state
