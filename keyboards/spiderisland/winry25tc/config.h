@@ -41,4 +41,4 @@
 #define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level */
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
-#define COMBO_COUNT 20
+#define COMBO_COUNT 27
