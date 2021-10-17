@@ -75,6 +75,20 @@ const uint16_t PROGMEM x_combo[] = {KC_SPC, KC_Y, COMBO_END};
 const uint16_t PROGMEM comma_combo[] = {KC_SPC, TG(_SYMBOL_LAYER), COMBO_END};
 const uint16_t PROGMEM period_combo[] = {KC_SPC, KC_ENT, COMBO_END};
 
+// num + space
+const uint16_t PROGMEM f1_combo[] = {KC_SPC, KC_1, COMBO_END};
+const uint16_t PROGMEM f2_combo[] = {KC_SPC, KC_2, COMBO_END};
+const uint16_t PROGMEM f3_combo[] = {KC_SPC, KC_3, COMBO_END};
+const uint16_t PROGMEM f4_combo[] = {KC_SPC, KC_4, COMBO_END};
+const uint16_t PROGMEM f5_combo[] = {KC_SPC, KC_5, COMBO_END};
+const uint16_t PROGMEM f6_combo[] = {KC_SPC, KC_6, COMBO_END};
+const uint16_t PROGMEM f7_combo[] = {KC_SPC, KC_7, COMBO_END};
+const uint16_t PROGMEM f8_combo[] = {KC_SPC, KC_8, COMBO_END};
+const uint16_t PROGMEM f9_combo[] = {KC_SPC, KC_9, COMBO_END};
+const uint16_t PROGMEM f10_combo[] = {KC_SPC, KC_0, COMBO_END};
+const uint16_t PROGMEM f11_combo[] = {KC_SPC, KC_SLASH, COMBO_END};
+const uint16_t PROGMEM f12_combo[] = {KC_SPC, KC_PLUS, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
 //base_layer + space combos
   COMBO(tab_combo, KC_TAB),
@@ -92,6 +106,19 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(x_combo, KC_X),
   COMBO(comma_combo, KC_COMMA),
   COMBO(period_combo, KC_DOT),
+  //num + space
+  COMBO(f1_combo, KC_F1),
+  COMBO(f2_combo, KC_F2),
+  COMBO(f3_combo, KC_F3),
+  COMBO(f4_combo, KC_F4),
+  COMBO(f5_combo, KC_F5),
+  COMBO(f6_combo, KC_F6),
+  COMBO(f7_combo, KC_F7),
+  COMBO(f8_combo, KC_F8),
+  COMBO(f9_combo, KC_F9),
+  COMBO(f10_combo, KC_F10),
+  COMBO(f11_combo, KC_F10),
+  COMBO(f12_combo, KC_F12),
 };
 
 //RGB Layers. Marry layout layers and rgb state
