@@ -131,11 +131,18 @@ const rgblight_segment_t PROGMEM number_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM num_func_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 10, HSV_BLUE}       // Light 4 LEDs, starting with LED 1
+    {1, 31, HSV_BLUE}       // Light 4 LEDs, starting with LED 1
 );
 
 const rgblight_segment_t PROGMEM ctrl_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 10, HSV_RED}       // Light 4 LEDs, starting with LED 1
+    {15, 1, HSV_RED},
+    {16,1, HSV_BLUE},
+    {17,1, HSV_YELLOW},
+    {18,1, HSV_GREEN},
+    {19,1, HSV_CYAN},
+    {20,1, HSV_GOLD},
+    {21,1, HSV_CORAL},
+    {22,1, HSV_CHARTREUSE}
 );
 
 const rgblight_segment_t PROGMEM alt_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
