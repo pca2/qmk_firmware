@@ -179,7 +179,14 @@ const rgblight_segment_t PROGMEM ctrl_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM alt_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 10, HSV_PINK}       // Light 4 LEDs, starting with LED 1
+    {25, 1, HSV_RED},
+    {26,1, HSV_BLUE},
+    {27,1, HSV_YELLOW},
+    {1,1, HSV_GREEN},
+    {2,1, HSV_CYAN},
+    {9,1, HSV_GOLD},
+    {8,1, HSV_CORAL},
+    {24,1, HSV_CHARTREUSE}
 );
 
 //Define the array of layers. Later layers take precedence
