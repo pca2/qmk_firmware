@@ -105,6 +105,10 @@ const uint16_t PROGMEM rangle_combo[] = {KC_SPC, KC_LEFT_ANGLE_BRACKET, COMBO_EN
 const uint16_t PROGMEM rparen_combo[] = {KC_SPC, KC_LEFT_PAREN, COMBO_END};
 const uint16_t PROGMEM rbracket_combo[] = {KC_SPC, KC_LBRACKET, COMBO_END};
 const uint16_t PROGMEM rcurly_combo[] = {KC_SPC, KC_LEFT_CURLY_BRACE, COMBO_END};
+// Num + combo, so you can hold num + the key or num and then the key. may need to add others
+const uint16_t PROGMEM ctrl_combo[] = {NUM_FUNC, KC_E, COMBO_END};
+const uint16_t PROGMEM alt_combo[] = {NUM_FUNC, KC_H, COMBO_END};
+const uint16_t PROGMEM esc_combo[] = {NUM_FUNC, KC_F, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 //base_layer + space combos
@@ -151,7 +155,11 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(rangle_combo, KC_RIGHT_ANGLE_BRACKET),
   COMBO(rparen_combo, KC_RIGHT_PAREN),
   COMBO(rbracket_combo, KC_RBRACKET),
-  COMBO(rcurly_combo, KC_RIGHT_CURLY_BRACE)
+  COMBO(rcurly_combo, KC_RIGHT_CURLY_BRACE),
+  // Num + combo, so you can hold num + the key or num and then the key. may need to add others
+  COMBO(ctrl_combo, CTRL_KEY),
+  COMBO(alt_combo, ALT_KEY),
+  COMBO(esc_combo, KC_ESC)
 };
 
 //RGB Layers. Marry layout layers and rgb state
@@ -212,8 +220,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(0, layer_state_cmp(state, _NUMBER_LAYER));
     rgblight_set_layer_state(1, layer_state_cmp(state, _SYMBOL_LAYER));
     rgblight_set_layer_state(2, layer_state_cmp(state, _NUM_FUNC_LAYER));
-    rgblight_set_layer_state(3, get_mods() & MOD_BIT(KC_LCTRL));
-    rgblight_set_layer_state(4, get_mods() & MOD_BIT(KC_LALT));
     return state;
 }
 
@@ -240,9 +246,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // if button already pressed, unregister
         if (get_mods() & MOD_BIT(KC_LCTRL)) {
           unregister_code(KC_LCTRL);
+          rgblight_set_layer_state(3, false);
         } else {
           // if not, register it and hold
           register_code(KC_LCTRL);
+          rgblight_set_layer_state(3, true);
         }
       } 
       return false; 
@@ -250,8 +258,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if(record->event.pressed) {
         if (get_mods() & MOD_BIT(KC_LALT)) {
           unregister_code(KC_LALT);
+          rgblight_set_layer_state(4, false);
         } else {
           register_code(KC_LALT);
+          rgblight_set_layer_state(4, true);
         }
       } 
       return false; 
