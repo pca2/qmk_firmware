@@ -41,5 +41,5 @@
 #define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level */
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
-#define COMBO_COUNT 42
+#define COMBO_COUNT 57
 #define ONESHOT_TAP_TOGGLE 2 
