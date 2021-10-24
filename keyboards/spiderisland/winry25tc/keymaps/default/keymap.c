@@ -40,21 +40,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ASTERISK,   KC_7,   KC_8,   KC_9, KC_MINS,
         KC_SLASH,   KC_4,   KC_5,  KC_6, KC_PLUS,
         KC_0,  KC_1,  KC_2, KC_3, KC_DOT,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
     [_SYMBOL_LAYER] = LAYOUT(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_QUESTION, KC_AMPERSAND, KC_KP_ASTERISK, KC_COLON, KC_SCOLON,
         KC_SLASH, KC_EXCLAIM, KC_MINUS, KC_AT, KC_UNDERSCORE,
         KC_DOUBLE_QUOTE, KC_LEFT_ANGLE_BRACKET, KC_LEFT_PAREN, KC_LBRACKET, KC_LEFT_CURLY_BRACE,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
     [_NUM_FUNC_LAYER] = LAYOUT(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
-        KC_ESC, KC_HOME, KC_END, KC_PAUS, KC_PGUP, 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_ESC, KC_HOME, KC_END, KC_PAUS, KC_PGUP,
         KC_INS, CTRL_KEY, ALT_KEY, KC_UP, KC_PGDN,
         KC_DEL, KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     )
 };
 
@@ -105,10 +105,22 @@ const uint16_t PROGMEM rangle_combo[] = {KC_SPC, KC_LEFT_ANGLE_BRACKET, COMBO_EN
 const uint16_t PROGMEM rparen_combo[] = {KC_SPC, KC_LEFT_PAREN, COMBO_END};
 const uint16_t PROGMEM rbracket_combo[] = {KC_SPC, KC_LBRACKET, COMBO_END};
 const uint16_t PROGMEM rcurly_combo[] = {KC_SPC, KC_LEFT_CURLY_BRACE, COMBO_END};
-// Num + combo, so you can hold num + the key or num and then the key. may need to add others
+// Num + key
+const uint16_t PROGMEM esc_combo[] = {NUM_FUNC, KC_F, COMBO_END};
+const uint16_t PROGMEM home_combo[] = {NUM_FUNC, KC_A, COMBO_END};
+const uint16_t PROGMEM end_combo[] = {NUM_FUNC, KC_R, COMBO_END};
+const uint16_t PROGMEM pause_combo[] = {NUM_FUNC, KC_W, COMBO_END};
+const uint16_t PROGMEM pgup_combo[] = {NUM_FUNC, KC_P, COMBO_END};
+const uint16_t PROGMEM ins_combo[] = {NUM_FUNC, KC_O, COMBO_END};
 const uint16_t PROGMEM ctrl_combo[] = {NUM_FUNC, KC_E, COMBO_END};
 const uint16_t PROGMEM alt_combo[] = {NUM_FUNC, KC_H, COMBO_END};
-const uint16_t PROGMEM esc_combo[] = {NUM_FUNC, KC_F, COMBO_END};
+const uint16_t PROGMEM up_combo[] = {NUM_FUNC, KC_T, COMBO_END};
+const uint16_t PROGMEM pgdn_combo[] = {NUM_FUNC, KC_D, COMBO_END};
+const uint16_t PROGMEM del_combo[] = {NUM_FUNC, KC_U, COMBO_END};
+const uint16_t PROGMEM backspace_combo[] = {NUM_FUNC, KC_I, COMBO_END};
+const uint16_t PROGMEM left_combo[] = {NUM_FUNC, KC_N, COMBO_END};
+const uint16_t PROGMEM down_combo[] = {NUM_FUNC, KC_S, COMBO_END};
+const uint16_t PROGMEM right_combo[] = {NUM_FUNC, KC_Y, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 //base_layer + space combos
@@ -127,7 +139,7 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(x_combo, KC_X),
   COMBO(comma_combo, KC_COMMA),
   COMBO(period_combo, KC_DOT),
-  //num + space
+  //num layer + space
   COMBO(f1_combo, KC_F1),
   COMBO(f2_combo, KC_F2),
   COMBO(f3_combo, KC_F3),
@@ -140,7 +152,7 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(f10_combo, KC_F10),
   COMBO(f11_combo, KC_F10),
   COMBO(f12_combo, KC_F12),
-  //sym + space
+  //sym layer + space
   COMBO(tab2_combo, KC_TAB),
   COMBO(plus_combo, KC_PLUS),
   COMBO(eq_combo, KC_EQUAL),
@@ -156,10 +168,22 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(rparen_combo, KC_RIGHT_PAREN),
   COMBO(rbracket_combo, KC_RBRACKET),
   COMBO(rcurly_combo, KC_RIGHT_CURLY_BRACE),
-  // Num + combo, so you can hold num + the key or num and then the key. may need to add others
+  // Num + key
+  COMBO(esc_combo, KC_ESC),
+  COMBO(home_combo, KC_HOME),
+  COMBO(end_combo, KC_END),
+  COMBO(pause_combo, KC_PAUS),
+  COMBO(pgup_combo, KC_PGUP),
+  COMBO(ins_combo, KC_INS),
   COMBO(ctrl_combo, CTRL_KEY),
   COMBO(alt_combo, ALT_KEY),
-  COMBO(esc_combo, KC_ESC)
+  COMBO(up_combo, KC_UP),
+  COMBO(pgdn_combo, KC_PGDN),
+  COMBO(del_combo, KC_DEL),
+  COMBO(backspace_combo, KC_BSPC),
+  COMBO(left_combo, KC_LEFT),
+  COMBO(down_combo, KC_DOWN),
+  COMBO(right_combo, KC_RGHT)
 };
 
 //RGB Layers. Marry layout layers and rgb state
@@ -193,8 +217,10 @@ const rgblight_segment_t PROGMEM alt_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
     {1,1, HSV_GREEN},
     {2,1, HSV_CYAN},
     {9,1, HSV_GOLD},
+    {10,1, HSV_GOLD},
     {8,1, HSV_CORAL},
-    {24,1, HSV_CHARTREUSE}
+    {24,1, HSV_CHARTREUSE},
+    {11,1, HSV_CHARTREUSE}
 );
 
 //Define the array of layers. Later layers take precedence
@@ -230,18 +256,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case NUM_FUNC:
       if(record->event.pressed) {
         num_func_timer = timer_read();
-        // as soon as pressed, turn on num_func layer 
-        layer_on(_NUM_FUNC_LAYER); 
+        // as soon as pressed, turn on num_func layer
+        layer_on(_NUM_FUNC_LAYER);
       } else {
         // when released, unregister and check timer length
-        layer_off(_NUM_FUNC_LAYER); 
+        layer_off(_NUM_FUNC_LAYER);
         if (timer_elapsed(num_func_timer) < 200) {
           // if tapped, toggle number layer
-          layer_invert(_NUMBER_LAYER); 
+          layer_invert(_NUMBER_LAYER);
         }
       }
       return false; // We handled this keypress, don't proceed with normal functionaly
-    case CTRL_KEY:  
+    case CTRL_KEY:
       if(record->event.pressed) {
         // if button already pressed, unregister
         if (get_mods() & MOD_BIT(KC_LCTRL)) {
@@ -252,9 +278,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code(KC_LCTRL);
           rgblight_set_layer_state(3, true);
         }
-      } 
-      return false; 
-    case ALT_KEY:  
+      }
+      return false;
+    case ALT_KEY:
       if(record->event.pressed) {
         if (get_mods() & MOD_BIT(KC_LALT)) {
           unregister_code(KC_LALT);
@@ -263,8 +289,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code(KC_LALT);
           rgblight_set_layer_state(4, true);
         }
-      } 
-      return false; 
+      }
+      return false;
   }
   return true; // Default case. We didn't handle other keypresses
 }
