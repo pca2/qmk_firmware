@@ -38,8 +38,9 @@
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_LIMIT_VAL 150 /* The maximum brightness level */
+#define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #define COMBO_COUNT 57
 #define ONESHOT_TAP_TOGGLE 2 
+#define ONESHOT_TIMEOUT 350  /* Time (in ms) before the one shot key is released */
