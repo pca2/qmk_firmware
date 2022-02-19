@@ -43,4 +43,4 @@
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #define COMBO_COUNT 57
 #define ONESHOT_TAP_TOGGLE 2 
-#define ONESHOT_TIMEOUT 350  /* Time (in ms) before the one shot key is released */
+#define ONESHOT_TIMEOUT 300  /* Time (in ms) before the one shot key is released */
