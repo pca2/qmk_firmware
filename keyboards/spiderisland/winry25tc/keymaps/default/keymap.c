@@ -21,6 +21,7 @@
 #define _SYMBOL_LAYER 2
 #define _NUM_FUNC_LAYER 3
 #define _WASD_LAYER 4
+#define _ARROW_LAYER 5
 
 enum custom_keycodes {
   NUM_FUNC = SAFE_RANGE,
@@ -30,7 +31,7 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE_LAYER] = LAYOUT(
-        RESET, DEBUG, TG(_WASD_LAYER), RGB_HUI, RGB_HUD,
+        RESET, DEBUG, TG(_WASD_LAYER),TG(_ARROW_LAYER), RGB_HUD,
         KC_F, KC_A, KC_R, KC_W, KC_P,
         KC_O,   KC_E,   KC_H,   KC_T, KC_D,
         KC_U,   KC_I,   KC_N,   KC_S, KC_Y,
@@ -62,6 +63,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q, KC_W, KC_E, KC_R, KC_T,
         KC_A, KC_S, KC_D, KC_F, KC_G,
         KC_Z, KC_X, KC_C, KC_V, KC_B,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    ),
+    [_ARROW_LAYER] = LAYOUT(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_UP, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     )
 };
@@ -208,7 +216,11 @@ const rgblight_segment_t PROGMEM num_func_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM wasd_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1, 31, HSV_RED}       // Light 4 LEDs, starting with LED 1
+    {1, 15, HSV_WHITE}       // Light 4 LEDs, starting with LED 1
+);
+
+const rgblight_segment_t PROGMEM arrow_rgb_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {1, 15, HSV_RED}       // Light 4 LEDs, starting with LED 1
 );
 
 const rgblight_segment_t PROGMEM ctrl_rgb_light[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -242,7 +254,8 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     num_func_rgb_layer,
     ctrl_rgb_light,
     alt_rgb_light,
-    wasd_rgb_layer
+    wasd_rgb_layer,
+    arrow_rgb_layer
 );
 
 void keyboard_post_init_user(void) {
@@ -260,6 +273,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(1, layer_state_cmp(state, _SYMBOL_LAYER));
     rgblight_set_layer_state(2, layer_state_cmp(state, _NUM_FUNC_LAYER));
     rgblight_set_layer_state(5, layer_state_cmp(state, _WASD_LAYER));
+    rgblight_set_layer_state(6, layer_state_cmp(state, _ARROW_LAYER));
     return state;
 }
 
