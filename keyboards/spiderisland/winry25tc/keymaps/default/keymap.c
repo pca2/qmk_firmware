@@ -31,7 +31,7 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE_LAYER] = LAYOUT(
-        RESET, DEBUG, TG(_WASD_LAYER),TG(_ARROW_LAYER), RGB_HUD,
+        RGB_TOG, RGB_MOD, RGB_HUD, TG(_ARROW_LAYER), TG(_WASD_LAYER),
         KC_F, KC_A, KC_R, KC_W, KC_P,
         KC_O,   KC_E,   KC_H,   KC_T, KC_D,
         KC_U,   KC_I,   KC_N,   KC_S, KC_Y,
@@ -90,6 +90,7 @@ const uint16_t PROGMEM g_combo[] = {KC_SPC, KC_S, COMBO_END};
 const uint16_t PROGMEM x_combo[] = {KC_SPC, KC_Y, COMBO_END};
 const uint16_t PROGMEM comma_combo[] = {KC_SPC, TG(_SYMBOL_LAYER), COMBO_END};
 const uint16_t PROGMEM period_combo[] = {KC_SPC, KC_ENT, COMBO_END};
+const uint16_t PROGMEM reset_combo[] = {KC_SPC, RGB_TOG, COMBO_END};
 
 // num + space
 const uint16_t PROGMEM f1_combo[] = {KC_SPC, KC_1, COMBO_END};
@@ -155,6 +156,7 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(x_combo, KC_X),
   COMBO(comma_combo, KC_COMMA),
   COMBO(period_combo, KC_DOT),
+  COMBO(reset_combo, RESET),
   //num layer + space
   COMBO(f1_combo, KC_MUTE),
   COMBO(f2_combo, KC_F2),
