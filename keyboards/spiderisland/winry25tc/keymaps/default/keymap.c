@@ -31,7 +31,7 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE_LAYER] = LAYOUT(
-        RESET, DEBUG, TG(_WASD_LAYER),TG(_ARROW_LAYER), RGB_HUD,
+        RESET, DEBUG, TG(_WASD_LAYER),TG(_ARROW_LAYER), RGB_TOG,
         KC_F, KC_A, KC_R, KC_W, KC_P,
         KC_O,   KC_E,   KC_H,   KC_T, KC_D,
         KC_U,   KC_I,   KC_N,   KC_S, KC_Y,
@@ -266,6 +266,12 @@ void keyboard_post_init_user(void) {
     debug_matrix=true;
     debug_keyboard=true;
     //debug_mouse=true;
+		
+		//try out boot lights
+//		rgblight_enable_noeeprom(); // enables Rgb, without saving settings
+//		rgblight_sethsv_noeeprom(180, 255, 255); // sets the color to teal/cyan without saving
+//		rgblight_mode_noeeprom(RGBLIGHT_EFFECT_SNAKE + 3); // sets mode to Fast breathing without saving    
+//
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {

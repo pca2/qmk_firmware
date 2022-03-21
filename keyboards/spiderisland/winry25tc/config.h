@@ -44,3 +44,4 @@
 #define COMBO_COUNT 57
 #define ONESHOT_TAP_TOGGLE 2 
 #define ONESHOT_TIMEOUT 300  /* Time (in ms) before the one shot key is released */
+#define RGBLIGHT_ANIMATIONS
